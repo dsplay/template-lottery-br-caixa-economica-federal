@@ -1,4 +1,4 @@
-.mega-sena.banner-h
+.federal.banner-h
     flex-direction: row
 
     font-size: .24em
@@ -279,66 +279,40 @@
     .header
         height: 100%
         width: auto
+        font-size: .6em
 
         .logo 
             padding: 0 2em
 
-    .spacer1
-        flex-grow: 3
-    .spacer2
-        flex-grow: 3
-    .spacer3
-        flex-grow: 1
-
-    .next-round
-        align-items: center
-        width: auto
-
-        .text
-            flex-direction: row
-            .title
-                font-size: 1.4em
-
-            .date
-                margin-left: 2em
-                font-size: 1.1em
-            .date::before
-                content: '('
-            .date::after
-                content: ')'
-        
-        .estimated-prize
-            width: auto
-            padding: 0 2em
-            margin-top: 0em
-
-            .currency-symbol
-                font-size: 4em
-
-            .value-container
-                font-size: 7.5em
-
-
     .last-round
 
-        padding: .2em 2em .1em 2em
-        margin-bottom: 0em
-
-        .title
-            font-size: .8em
-
-        .numbers
-            font-size: 3em
-            
-            .ball
-                margin: .1em .3em
-        .result
-            font-size: 1.2em
-            margin: .2em 0
-
-            .winner
-        .info
+        .title 
             display: none
+
+        .results
+
+            flex-direction: column
+
+            .prizes
+                flex-direction: row
+
+                span
+                    display: flex
+
+                    .prize
+
+                        .id
+
+                            .number
+                                border-radius: .2rem
+                                margin-bottom: .5em
+
+                            .ticket
+
+                        .amount
+
+                    .prize.prize-1
+                        font-size: 1.5em
     .special-prizes
         display: none
 

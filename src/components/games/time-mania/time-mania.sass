@@ -1,6 +1,7 @@
-$color: #209869
-
-.mega-sena
+$color: #FFF600
+$textColor: #049645
+    
+.time-mania
     overflow: hidden
     display: flex
     flex-direction: column
@@ -15,7 +16,7 @@ $color: #209869
         width: 100%
 
         .logo 
-            color: white
+            color: $textColor
             padding: 1em
             display: flex
             justify-content: center
@@ -59,11 +60,9 @@ $color: #209869
             margin-top: 1em
 
             .currency-symbol
-                font-size: 4em
 
             .value-container
                 position: relative
-                font-size: 9.5em
 
 
 
@@ -80,24 +79,44 @@ $color: #209869
             text-transform: uppercase
             font-weight: bold
 
-    
+        .results
 
-        .numbers
             display: flex
-            font-size: 3em
-            text-align: center
-            
-            .ball
-                background-color: #209869
-                color: white
-                margin: .1em .3em
-        .result
-            text-transform: uppercase
-            font-size: 2em
-            margin: .2em 0
+            align-items: center
+            flex-direction: column
 
-            .winner
-                font-weight: bold
+            .numbers
+                display: flex
+                font-size: 3em
+                text-align: center
+                
+                .ball
+                    background-color: $color
+                    color: $textColor
+                    margin: .1em .3em
+            .extra-result
+                display: inline-flex
+                background-color: $color
+                color: $textColor
+                border-radius: 1em
+                margin: .5em 1em
+                padding: .5em 2em .2em
+                align-self: center
+                justify-self: center
+                justify-content: center
+                .value
+                    font-weight: bold
+                    text-transform: uppercase
+                    margin-left: .5em
+
+            .result
+                text-transform: uppercase
+                text-align: center
+                font-size: 1em
+                margin: .2em 0
+
+                .winner
+                    font-weight: normal
         .info
             text-align: center
             opacity: .5

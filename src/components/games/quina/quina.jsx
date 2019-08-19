@@ -8,24 +8,24 @@ import {
     template, // custom template values
 } from '@dsplay/template-utils';
 import Ball from '../../ball';
-import './mega-sena.sass';
-import './mega-sena-h.sass';
-import './mega-sena-v.sass';
-import './mega-sena-banner-h.sass';
-import './mega-sena-banner-v.sass';
-import './mega-sena-squared.sass';
-import logo from '../../../images/mega-sena-branco.png';
+import './quina.sass';
+import './quina-h.sass';
+import './quina-v.sass';
+import './quina-banner-h.sass';
+import './quina-banner-v.sass';
+import './quina-squared.sass';
+import logo from '../../../images/quina-branco.png';
 import { screenFormat, BANNER_V } from '../../../util.js/screen';
 
 const {
     result: {
         data: {
-            megasena: {
+            quina: {
                 round: {
                     number,
                     numbers = [],
                     prizes: {
-                        sena: {
+                        quina: {
                             winners,
                             amount,
                         },
@@ -39,20 +39,11 @@ const {
                     date: nextDate,
                     estimatedPrize,
                 },
-                accumulatedMegaVirada,
+                accumulatedSaintJohnSpecialPrize: nextSpecialPrizeAccumulated,
             },
         },
     },
 } = media;
-
-const {
-    fontRatio,
-    scaledDensity,
-    xdpi,
-    ydpi,
-    width,
-    height,
-} = config;
 
 moment.locale('pt-BR');
 
@@ -62,9 +53,9 @@ var fmt = new Intl.NumberFormat('pt-BR', {
     minimumFractionDigits: 2,
 });
 
-function MegaSena() {
+function Quina() {
 
-    const title = screenFormat === BANNER_V ? 'MEGA SENA' : 'MEGA-SENA';
+    const title = 'QUINA';
 
     let lastPrize;
     let winnersText;
@@ -79,7 +70,7 @@ function MegaSena() {
     const nextDateUTC = moment.utc(nextDate);
 
     return (
-        <div className={`${screenFormat} mega-sena`}>
+        <div className={`${screenFormat} quina`}>
             <div className="header">
                 <div className="logo">
                     <img src={logo} />
@@ -140,7 +131,7 @@ function MegaSena() {
             </div>
             <div className="spacer3" />
             <div className="special-prizes">
-                Acumulado para Mega da Virada:
+                Acumulado para Sorteio Especial de São João:
                 <strong>
                     &nbsp;
                     R$
@@ -148,7 +139,7 @@ function MegaSena() {
                     <CountUp
                         duration={5}
                         start={0}
-                        end={accumulatedMegaVirada}
+                        end={nextSpecialPrizeAccumulated}
                         decimals={2}
                         separator="."
                         decimal=","
@@ -159,4 +150,4 @@ function MegaSena() {
     );
 }
 
-export default MegaSena;
+export default Quina;

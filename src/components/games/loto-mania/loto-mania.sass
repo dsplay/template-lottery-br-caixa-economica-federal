@@ -1,6 +1,6 @@
-$color: #209869
-
-.mega-sena
+$color: #F78100
+    
+.loto-mania
     overflow: hidden
     display: flex
     flex-direction: column
@@ -59,11 +59,9 @@ $color: #209869
             margin-top: 1em
 
             .currency-symbol
-                font-size: 4em
 
             .value-container
                 position: relative
-                font-size: 9.5em
 
 
 
@@ -80,24 +78,29 @@ $color: #209869
             text-transform: uppercase
             font-weight: bold
 
-    
+        .results
 
-        .numbers
             display: flex
-            font-size: 3em
-            text-align: center
-            
-            .ball
-                background-color: #209869
-                color: white
-                margin: .1em .3em
-        .result
-            text-transform: uppercase
-            font-size: 2em
-            margin: .2em 0
+            flex-direction: column
 
-            .winner
-                font-weight: bold
+            .numbers
+                display: flex
+                flex-direction: column
+                font-size: 3em
+                text-align: center
+                
+                .ball
+                    background-color: $color
+                    color: white
+                    margin: .1em .3em
+            .result
+                text-transform: uppercase
+                text-align: center
+                font-size: 1em
+                margin: .2em 0
+
+                .winner
+                    font-weight: normal
         .info
             text-align: center
             opacity: .5

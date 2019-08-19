@@ -8,26 +8,29 @@ import {
     template, // custom template values
 } from '@dsplay/template-utils';
 import Ball from '../../ball';
-import './mega-sena.sass';
-import './mega-sena-h.sass';
-import './mega-sena-v.sass';
-import './mega-sena-banner-h.sass';
-import './mega-sena-banner-v.sass';
-import './mega-sena-squared.sass';
-import logo from '../../../images/mega-sena-branco.png';
-import { screenFormat, BANNER_V } from '../../../util.js/screen';
+import './time-mania.sass';
+import './time-mania-h.sass';
+import './time-mania-v.sass';
+import './time-mania-banner-h.sass';
+import './time-mania-banner-v.sass';
+import './time-mania-squared.sass';
+import logo from '../../../images/time-mania-branco.png';
+import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 const {
     result: {
         data: {
-            megasena: {
+            timemania: {
                 round: {
                     number,
                     numbers = [],
                     prizes: {
-                        sena: {
+                        hits_7: {
                             winners,
                             amount,
+                        },
+                        heart_club: {
+                            club,
                         },
                     },
                     accumulated,
@@ -39,20 +42,10 @@ const {
                     date: nextDate,
                     estimatedPrize,
                 },
-                accumulatedMegaVirada,
             },
         },
     },
 } = media;
-
-const {
-    fontRatio,
-    scaledDensity,
-    xdpi,
-    ydpi,
-    width,
-    height,
-} = config;
 
 moment.locale('pt-BR');
 
@@ -62,24 +55,25 @@ var fmt = new Intl.NumberFormat('pt-BR', {
     minimumFractionDigits: 2,
 });
 
-function MegaSena() {
+function TimeMania() {
 
-    const title = screenFormat === BANNER_V ? 'MEGA SENA' : 'MEGA-SENA';
+    const title = 'TIME MANIA';
 
     let lastPrize;
     let winnersText;
+
     if (winners > 0) {
         winnersText = `${winners} ganhador${winners === 1 ? '' : 'es'}`;
         lastPrize = amount;
     } else {
-        winnersText = `Acumulou`;
+        winnersText = `ACUMULOU`;
         lastPrize = accumulated;
     }
 
     const nextDateUTC = moment.utc(nextDate);
 
     return (
-        <div className={`${screenFormat} mega-sena`}>
+        <div className={`${screenFormat} time-mania`}>
             <div className="header">
                 <div className="logo">
                     <img src={logo} />
@@ -114,25 +108,34 @@ function MegaSena() {
 
             <div className="last-round flex v">
                 <div className="title">Último Resultado</div>
-                <div className="numbers">
-                    <span>
-                        {numbers.slice(0, 3).map(number => <Ball key={number} value={number} />)}
-                    </span>
-                    <span>
-                        {numbers.slice(3).map(number => <Ball key={number} value={number} />)}
-                    </span>
-                </div>
-                <div className="result">
-                    <span className="winner">{winnersText}</span> (R$
-                        <CountUp
-                        duration={3}
-                        start={0}
-                        end={lastPrize}
-                        decimals={2}
-                        separator="."
-                        decimal=","
-                    />
-                    )
+                <div className="results">
+                    <div className="numbers">
+                        <span>
+                            {numbers.slice(0, 4).map(number => <Ball key={number} value={number} />)}
+                        </span>
+                        <span>
+                            {numbers.slice(4).map(number => <Ball key={number} value={number} />)}
+                        </span>
+                    </div>
+                    <div>
+                        <div className="extra-result">
+                            <span className="label">Time do Coração: ♥</span>
+                            <span className="value">{club}</span>
+                        </div>
+                        <div className="result">
+                            <span className="winner">{winnersText}</span>
+                            &nbsp;(R$&nbsp;
+                            <CountUp
+                                duration={3}
+                                start={0}
+                                end={lastPrize}
+                                decimals={2}
+                                separator="."
+                                decimal=","
+                            />
+                            )
+                        </div>
+                    </div>
                 </div>
                 <div className="info">
                     Concurso nº <strong>{number}</strong>, realizado em {moment(date).format('L')}. Local: {place}, {city}
@@ -140,23 +143,9 @@ function MegaSena() {
             </div>
             <div className="spacer3" />
             <div className="special-prizes">
-                Acumulado para Mega da Virada:
-                <strong>
-                    &nbsp;
-                    R$
-                    &nbsp;
-                    <CountUp
-                        duration={5}
-                        start={0}
-                        end={accumulatedMegaVirada}
-                        decimals={2}
-                        separator="."
-                        decimal=","
-                    />
-                </strong>
             </div>
         </div>
     );
 }
 
-export default MegaSena;
+export default TimeMania;

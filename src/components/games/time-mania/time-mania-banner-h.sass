@@ -1,4 +1,4 @@
-.mega-sena.banner-h
+.time-mania.banner-h
     flex-direction: row
 
     font-size: .24em
@@ -279,6 +279,7 @@
     .header
         height: 100%
         width: auto
+        font-size: .6em
 
         .logo 
             padding: 0 2em
@@ -313,10 +314,10 @@
             margin-top: 0em
 
             .currency-symbol
-                font-size: 4em
+                font-size: 3em
 
             .value-container
-                font-size: 7.5em
+                font-size: 6.5em
 
 
     .last-round
@@ -327,16 +328,26 @@
         .title
             font-size: .8em
 
-        .numbers
-            font-size: 3em
-            
-            .ball
-                margin: .1em .3em
-        .result
-            font-size: 1.2em
-            margin: .2em 0
+        .results
 
-            .winner
+            flex-direction: row
+            align-items: center
+
+            .h-divider
+                margin: 0 1em
+                border: 1px solid #aaaaaa
+                height: 5em
+
+            .numbers
+                font-size: 2em
+                flex-direction: row
+                .ball
+                    margin: .1em .3em
+            .result
+                font-size: 1.2em
+                margin: .2em 0
+
+                .winner
         .info
             display: none
     .special-prizes
