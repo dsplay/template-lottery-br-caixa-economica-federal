@@ -1,9 +1,722 @@
 var media = {
-  duration: 30000,
-  iteration: 0,
+  duration: 5000,
+  iteration: 8, // testando 8 e 9
 
   // for json service based media
-  result: {"validity":"2021-08-09T10:40:10.393Z","showOutdated":true,"data":{"federal":{"validity":"2021-08-11T03:00:00.000Z","valid":true,"round":{"number":5586,"date":"2021-08-07T03:00:00.000Z","city":"SAO PAULO, SP","prizes":[{"ticket":"016035","amount":500000},{"ticket":"011915","amount":27000},{"ticket":"002429","amount":24000},{"ticket":"062173","amount":19000},{"ticket":"036408","amount":18329}],"next":{"date":"2021-08-11T03:00:00.000Z","estimatedPrize":500000}}},"megasena":{"validity":"2021-08-10T03:00:00.000Z","valid":true,"round":{"number":2397,"date":"2021-08-07T03:00:00.000Z","city":"SÃO PAULO, SP","totalCollection":83393815.5,"isAccumulated":true,"accumulated":54614721.42,"numbers":["06","14","20","39","46","48"],"prizes":{"sena":{"winners":0,"amount":0},"quina":{"winners":79,"amount":60862.18},"quadra":{"winners":6058,"amount":1133.82}}},"next":{"date":"2021-08-10T03:00:00.000Z","estimatedPrize":65000000},"accumulatedNextEnding5Round":0,"accumulatedNextEnding0Round":14484116.05,"accumulatedMegaVirada":48620258.63,"accumulatedEndingXContestValue":14484116.05,"accumulatedEndingXContestNumber":0,"accumulatedSpecialContestValue":48620258.63,"accumulatedSpecialContestName":"Mega da Virada"},"duplasena":{"validity":"2021-08-10T03:00:00.000Z","valid":true,"round":{"number":2258,"date":"2021-08-07T03:00:00.000Z","city":"SÃO PAULO, SP","totalCollection":1507187.5,"isAccumulated":true,"accumulated":422832.5,"numbers1":["03","10","21","27","30","48"],"numbers2":["05","11","13","17","45","46"],"prizes1":{"sena":{"winners":0,"amount":0},"quina":{"winners":15,"amount":3049.04},"quadra":{"winners":693,"amount":75.42},"terno":{"winners":10467,"amount":2.49}},"prizes2":{"sena":{"winners":0,"amount":0},"quina":{"winners":15,"amount":2744.14},"quadra":{"winners":775,"amount":67.44},"terno":{"winners":12965,"amount":2.01}}},"next":{"date":"2021-08-10T03:00:00.000Z","estimatedPrize":600000},"accumulatedEasterSpecialPrize":7545661.27,"accumulatedSpecialContestValue":7545661.27,"accumulatedSpecialContestName":"Páscoa"},"quina":{"validity":"2021-08-09T03:00:00.000Z","valid":true,"round":{"number":5626,"date":"2021-08-07T03:00:00.000Z","city":"SÃO PAULO, SP","totalCollection":11875836,"isAccumulated":true,"accumulated":8172694.71,"numbers":["03","22","37","72","76"],"prizes":{"quina":{"winners":0,"amount":0},"quadra":{"winners":85,"amount":8055.38},"terno":{"winners":5896,"amount":174.63},"duque":{"winners":158382,"amount":3.57}}},"next":{"date":"2021-08-09T03:00:00.000Z","estimatedPrize":9500000},"accumulatedSaintJohnSpecialPrize":13882393.11,"accumulatedSpecialContestValue":13882393.11,"accumulatedSpecialContestName":"São João"},"lotofacil":{"validity":"2021-08-09T03:00:00.000Z","valid":true,"round":{"number":2302,"date":"2021-08-07T03:00:00.000Z","city":"SÃO PAULO, SP","totalCollection":15691627.5,"isAccumulated":false,"accumulated":0,"numbers":["03","04","06","07","08","10","11","12","13","14","16","17","18","20","21"],"prizes":{"hits_15":{"winners":1,"amount":1180267.57},"hits_14":{"winners":235,"amount":1504.41},"hits_13":{"winners":9676,"amount":25},"hits_12":{"winners":110818,"amount":10},"hits_11":{"winners":546546,"amount":5}}},"next":{"date":"2021-08-09T03:00:00.000Z","estimatedPrize":1500000}},"lotomania":{"validity":"2021-08-10T03:00:00.000Z","valid":true,"round":{"number":2202,"date":"2021-08-06T03:00:00.000Z","city":"SÃO PAULO, SP","totalCollection":4936207.5,"isAccumulated":true,"accumulated":793882.87,"numbers":["01","04","14","15","19","21","28","32","33","35","47","53","65","68","74","75","79","81","84","93"],"prizes":{"hits_20":{"winners":0,"amount":0},"hits_19":{"winners":4,"amount":59915.69},"hits_18":{"winners":63,"amount":2377.61},"hits_17":{"winners":679,"amount":220.6},"hits_16":{"winners":3935,"amount":38.06},"hits_15":{"winners":17463,"amount":8.57},"hits_0":{"winners":0,"amount":0}}},"next":{"date":"2021-08-10T03:00:00.000Z","estimatedPrize":1500000}},"loteca":{"validity":"2021-08-07T03:00:00.000Z","valid":true,"round":{"number":948,"date":"2021-08-02T03:00:00.000Z","totalCollection":2053770,"isAccumulated":true,"accumulated":1034724.88,"matches":[{"leftColumn":false,"middleColumn":true,"rightColumn":false,"weekday":"SÃ¡bado","leftTeam":1,"rightTeam":1,"game":1,"leftTeamName":"JACUIPENSE","rightTeamName":"FLORESTA"},{"leftColumn":true,"middleColumn":false,"rightColumn":false,"weekday":"SÃ¡bado","leftTeam":1,"rightTeam":0,"game":2,"leftTeamName":"PAYSANDU","rightTeamName":"TOMBENSE"},{"leftColumn":false,"middleColumn":false,"rightColumn":true,"weekday":"SÃ¡bado","leftTeam":1,"rightTeam":2,"game":3,"leftTeamName":"BRASIL RS","rightTeamName":"SAMP CORREA"},{"leftColumn":false,"middleColumn":true,"rightColumn":false,"weekday":"SÃ¡bado","leftTeam":0,"rightTeam":0,"game":4,"leftTeamName":"FERROVIARIO","rightTeamName":"BOTAFOGO"},{"leftColumn":false,"middleColumn":true,"rightColumn":false,"weekday":"SÃ¡bado","leftTeam":0,"rightTeam":0,"game":5,"leftTeamName":"SAO PAULO","rightTeamName":"PALMEIRAS"},{"leftColumn":false,"middleColumn":true,"rightColumn":false,"weekday":"SÃ¡bado","leftTeam":0,"rightTeam":0,"game":6,"leftTeamName":"INTERNACIONAL","rightTeamName":"CUIABA"},{"leftColumn":true,"middleColumn":false,"rightColumn":false,"weekday":"SÃ¡bado","leftTeam":2,"rightTeam":0,"game":7,"leftTeamName":"BOTAFOGO","rightTeamName":"VASCO DA GAMA"},{"leftColumn":true,"middleColumn":false,"rightColumn":false,"weekday":"SÃ¡bado","leftTeam":1,"rightTeam":0,"game":8,"leftTeamName":"RB BRAGANTINO","rightTeamName":"GREMIO"},{"leftColumn":true,"middleColumn":false,"rightColumn":false,"weekday":"Domingo","leftTeam":2,"rightTeam":0,"game":9,"leftTeamName":"ATLETICO","rightTeamName":"ATHLETICO"},{"leftColumn":false,"middleColumn":false,"rightColumn":true,"weekday":"Domingo","leftTeam":1,"rightTeam":3,"game":10,"leftTeamName":"CORINTHIANS","rightTeamName":"FLAMENGO"},{"leftColumn":false,"middleColumn":false,"rightColumn":true,"weekday":"Domingo","leftTeam":0,"rightTeam":1,"game":11,"leftTeamName":"BAHIA","rightTeamName":"SPORT"},{"leftColumn":true,"middleColumn":false,"rightColumn":false,"weekday":"Domingo","leftTeam":1,"rightTeam":0,"game":12,"leftTeamName":"REMO","rightTeamName":"CSA"},{"leftColumn":false,"middleColumn":true,"rightColumn":false,"weekday":"Domingo","leftTeam":1,"rightTeam":1,"game":13,"leftTeamName":"ATLETICO","rightTeamName":"AMERICA"},{"leftColumn":true,"middleColumn":false,"rightColumn":false,"weekday":"Domingo","leftTeam":3,"rightTeam":1,"game":14,"leftTeamName":"CEARA","rightTeamName":"FORTALEZA"}],"prizes":{"hits_14":{"winners":0,"amount":0},"hits_13":{"winners":3,"amount":27034.8}}},"next":{"date":"2021-08-07T03:00:00.000Z","estimatedPrize":1600000},"accumulatedEndingXContestValue":1034724.88,"accumulatedEndingXContestNumber":0},"timemania":{"validity":"2021-08-10T03:00:00.000Z","valid":true,"round":{"number":1673,"date":"2021-08-07T03:00:00.000Z","city":"SÃO PAULO, SP","totalCollection":3491334,"isAccumulated":true,"accumulated":14990553.38,"numbers":["11","22","32","62","70","76","78"],"prizes":{"hits_7":{"winners":0,"amount":0},"hits_6":{"winners":5,"amount":38976.24},"hits_5":{"winners":141,"amount":1382.14},"hits_4":{"winners":3307,"amount":9},"hits_3":{"winners":34554,"amount":3},"heart_club":{"club":"Ipatinga/MG","ten":"35","winners":10744,"amount":7.5}}},"next":{"date":"2021-08-10T03:00:00.000Z","estimatedPrize":15500000}},"diadesorte":{"validity":"2021-08-10T03:00:00.000Z","valid":true,"round":{"number":491,"date":"2021-08-07T03:00:00.000Z","city":"SÃO PAULO, SP","totalCollection":1804354,"isAccumulated":true,"accumulated":885988.25,"numbers":["02","03","07","12","23","26","30"],"prizes":{"hits_7":{"winners":0,"amount":0},"hits_6":{"winners":70,"amount":1509.39},"hits_5":{"winners":2476,"amount":20},"hits_4":{"winners":28371,"amount":4},"luck_month":{"winners":58028,"amount":2}}},"next":{"date":"2021-08-10T03:00:00.000Z","estimatedPrize":1100000}},"supersete":{"validity":"2021-08-09T03:00:00.000Z","valid":true,"round":{"number":127,"date":"2021-08-06T03:00:00.000Z","city":"SAO PAULO, SP","totalCollection":886437.5,"isAccumulated":true,"accumulated":2201009.4,"numbers":["3","6","9","2","7","8","7"],"prizes":{"hits_7":{"winners":0,"amount":0},"hits_6":{"winners":1,"amount":35945.24},"hits_5":{"winners":55,"amount":933.64},"hits_4":{"winners":925,"amount":55.51},"hits_3":{"winners":8387,"amount":5}}},"next":{"date":"2021-08-09T03:00:00.000Z","estimatedPrize":2400000},"specialGame":false}}},
+  result: {
+    "expiresAt": "2021-09-13T15:49:34.912Z",
+    "showExpired": true,
+    "data": {
+        "federal": {
+            "round": {
+                "date": "2021-09-11T03:00:00.000Z",
+                "number": 5596,
+                "city": "SÃO PAULO, SP",
+                "prizes": [
+                    {
+                        "ticket": "050502",
+                        "amount": 500000,
+                        "range": "0",
+                        "winners": "050502"
+                    },
+                    {
+                        "ticket": "010883",
+                        "amount": 27000,
+                        "range": "1",
+                        "winners": "010883"
+                    },
+                    {
+                        "ticket": "012767",
+                        "amount": 24000,
+                        "range": "2",
+                        "winners": "012767"
+                    },
+                    {
+                        "ticket": "049930",
+                        "amount": 19000,
+                        "range": "3",
+                        "winners": "049930"
+                    },
+                    {
+                        "ticket": "081384",
+                        "amount": 18329,
+                        "range": "4",
+                        "winners": "081384"
+                    }
+                ]
+            },
+            "next": {
+                "date": "2021-09-15T03:00:00.000Z",
+                "estimatedPrize": 500000
+            },
+            "validity": "2021-09-15T03:00:00.000Z",
+            "name": "federal"
+        },
+        "megasena": {
+            "next": {
+                "date": "2021-09-15T03:00:00.000Z",
+                "estimatedPrize": 3000000
+            },
+            "accumulatedNextEnding5Round": 0,
+            "accumulatedEndingXContestValue": 14989344.32,
+            "round": {
+                "date": "2021-09-11T03:00:00.000Z",
+                "number": 2408,
+                "city": "SÃO PAULO, SP",
+                "prizes": {
+                    "sena": {
+                        "winners": 1,
+                        "amount": 46317095.04,
+                        "range": "sena"
+                    },
+                    "quina": {
+                        "winners": 65,
+                        "amount": 59322.24,
+                        "range": "quina"
+                    },
+                    "quadra": {
+                        "winners": 4828,
+                        "amount": 1140.94,
+                        "range": "quadra"
+                    }
+                },
+                "numbers": [
+                    "04",
+                    "29",
+                    "30",
+                    "38",
+                    "43",
+                    "57"
+                ],
+                "isAccumulated": false,
+                "totalCollection": 66879058.5,
+                "accumulated": 0
+            },
+            "accumulatedSpecialContestValue": 56871441.55,
+            "accumulatedSpecialContestName": "Mega da Virada",
+            "accumulatedNextEnding0Round": 14989344.32,
+            "accumulatedEndingXContestNumber": 0,
+            "validity": "2021-09-15T03:00:00.000Z",
+            "accumulatedMegaVirada": 56871441.55,
+            "name": "megasena"
+        },
+        "duplasena": {
+            "next": {
+                "date": "2021-09-14T03:00:00.000Z",
+                "estimatedPrize": 250000
+            },
+            "validity": "2021-09-14T03:00:00.000Z",
+            "round": {
+                "date": "2021-09-11T03:00:00.000Z",
+                "number": 2272,
+                "prizes2": {
+                    "sena": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "sena"
+                    },
+                    "terno": {
+                        "winners": 17195,
+                        "amount": 2.29,
+                        "range": "terno"
+                    },
+                    "quina": {
+                        "winners": 14,
+                        "amount": 4439.01,
+                        "range": "quina"
+                    },
+                    "quadra": {
+                        "winners": 925,
+                        "amount": 85.31,
+                        "range": "quadra"
+                    }
+                },
+                "prizes1": {
+                    "sena": {
+                        "winners": 1,
+                        "amount": 3601405.06,
+                        "range": "sena"
+                    },
+                    "terno": {
+                        "winners": 15789,
+                        "amount": 2.49,
+                        "range": "terno"
+                    },
+                    "quina": {
+                        "winners": 39,
+                        "amount": 1770.55,
+                        "range": "quina"
+                    },
+                    "quadra": {
+                        "winners": 982,
+                        "amount": 80.36,
+                        "range": "quadra"
+                    }
+                },
+                "city": "SÃO PAULO, SP",
+                "numbers2": [
+                    "03",
+                    "04",
+                    "07",
+                    "09",
+                    "31",
+                    "46"
+                ],
+                "numbers1": [
+                    "14",
+                    "15",
+                    "28",
+                    "33",
+                    "44",
+                    "46"
+                ],
+                "isAccumulated": false,
+                "totalCollection": 2275540,
+                "accumulated": 75956.39
+            },
+            "accumulatedEasterSpecialPrize": 8815721.74,
+            "accumulatedSpecialContestValue": 8815721.74,
+            "accumulatedSpecialContestName": "Páscoa",
+            "name": "duplasena"
+        },
+        "quina": {
+            "validity": "2021-09-13T03:00:00.000Z",
+            "valid": true,
+            "round": {
+                "number": 5655,
+                "date": "2021-09-11T03:00:00.000Z",
+                "city": "SÃO PAULO, SP",
+                "totalCollection": 7359306,
+                "isAccumulated": true,
+                "accumulated": 1536106.04,
+                "numbers": [
+                    "01",
+                    "28",
+                    "31",
+                    "68",
+                    "78"
+                ],
+                "prizes": {
+                    "quina": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "quina"
+                    },
+                    "quadra": {
+                        "winners": 26,
+                        "amount": 16319.41,
+                        "range": "quadra"
+                    },
+                    "terno": {
+                        "winners": 2669,
+                        "amount": 239.06,
+                        "range": "terno"
+                    },
+                    "duque": {
+                        "winners": 82187,
+                        "amount": 4.26,
+                        "range": "duque"
+                    }
+                }
+            },
+            "next": {
+                "date": "2021-09-13T03:00:00.000Z",
+                "estimatedPrize": 2400000
+            },
+            "accumulatedSaintJohnSpecialPrize": 27733941.16,
+            "accumulatedSpecialContestValue": 27733941.16,
+            "accumulatedSpecialContestName": "São João",
+            "name": "quina"
+        },
+        "lotofacil": {
+            "validity": "2021-09-13T03:00:00.000Z",
+            "valid": true,
+            "round": {
+                "number": 2320,
+                "date": "2021-09-11T03:00:00.000Z",
+                "city": "SÃO PAULO, SP",
+                "totalCollection": 517424717.5,
+                "isAccumulated": false,
+                "accumulated": 0,
+                "numbers": [
+                    "01",
+                    "02",
+                    "03",
+                    "05",
+                    "06",
+                    "09",
+                    "12",
+                    "13",
+                    "15",
+                    "17",
+                    "21",
+                    "22",
+                    "23",
+                    "24",
+                    "25"
+                ],
+                "prizes": {
+                    "hits_15": {
+                        "winners": 57,
+                        "amount": 2791889.55,
+                        "range": "hits_15"
+                    },
+                    "hits_14": {
+                        "winners": 10288,
+                        "amount": 1124.02,
+                        "range": "hits_14"
+                    },
+                    "hits_13": {
+                        "winners": 292658,
+                        "amount": 25,
+                        "range": "hits_13"
+                    },
+                    "hits_12": {
+                        "winners": 3577748,
+                        "amount": 10,
+                        "range": "hits_12"
+                    },
+                    "hits_11": {
+                        "winners": 18451178,
+                        "amount": 5,
+                        "range": "hits_11"
+                    }
+                }
+            },
+            "next": {
+                "date": "2021-09-13T03:00:00.000Z",
+                "estimatedPrize": 1500000
+            },
+            "name": "lotofacil"
+        },
+        "lotomania": {
+            "round": {
+                "date": "2021-09-10T03:00:00.000Z",
+                "number": 2212,
+                "city": "SÃO PAULO, SP",
+                "prizes": {
+                    "hits_20": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_20"
+                    },
+                    "hits_0": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_0"
+                    },
+                    "hits_17": {
+                        "winners": 601,
+                        "amount": 220.05,
+                        "range": "hits_17"
+                    },
+                    "hits_16": {
+                        "winners": 3407,
+                        "amount": 38.81,
+                        "range": "hits_16"
+                    },
+                    "hits_19": {
+                        "winners": 5,
+                        "amount": 42321.44,
+                        "range": "hits_19"
+                    },
+                    "hits_18": {
+                        "winners": 63,
+                        "amount": 2099.28,
+                        "range": "hits_18"
+                    },
+                    "hits_15": {
+                        "winners": 24056,
+                        "amount": 5.49,
+                        "range": "hits_15"
+                    }
+                },
+                "numbers": [
+                    "04",
+                    "05",
+                    "23",
+                    "30",
+                    "48",
+                    "58",
+                    "60",
+                    "61",
+                    "62",
+                    "63",
+                    "64",
+                    "76",
+                    "82",
+                    "83",
+                    "84",
+                    "85",
+                    "86",
+                    "89",
+                    "92",
+                    "98"
+                ],
+                "isAccumulated": true,
+                "totalCollection": 4358362.5,
+                "accumulated": 1500156.45
+            },
+            "next": {
+                "date": "2021-09-14T03:00:00.000Z",
+                "estimatedPrize": 2200000
+            },
+            "validity": "2021-09-14T03:00:00.000Z",
+            "name": "lotomania"
+        },
+        "loteca": {
+            "validity": "2021-09-11T03:00:00.000Z",
+            "valid": true,
+            "round": {
+                "number": 953,
+                "date": "2021-09-06T03:00:00.000Z",
+                "totalCollection": 1189513.5,
+                "isAccumulated": true,
+                "accumulated": 219214.25,
+                "matches": [
+                    {
+                        "leftColumn": false,
+                        "middleColumn": false,
+                        "rightColumn": true,
+                        "weekday": "SÃ¡bado",
+                        "leftTeam": 1,
+                        "rightTeam": 2,
+                        "game": 1,
+                        "leftTeamName": "FLORESTA",
+                        "rightTeamName": "ALTOS"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": false,
+                        "rightColumn": true,
+                        "weekday": "SÃ¡bado",
+                        "leftTeam": 1,
+                        "rightTeam": 4,
+                        "game": 2,
+                        "leftTeamName": "BOTAFOGO",
+                        "rightTeamName": "NOVORIZONTINO"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": true,
+                        "rightColumn": false,
+                        "weekday": "SÃ¡bado",
+                        "leftTeam": 1,
+                        "rightTeam": 1,
+                        "game": 3,
+                        "leftTeamName": "NAUTICO",
+                        "rightTeamName": "GUARANI"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": false,
+                        "rightColumn": true,
+                        "weekday": "SÃ¡bado",
+                        "leftTeam": 0,
+                        "rightTeam": 1,
+                        "game": 4,
+                        "leftTeamName": "REMO",
+                        "rightTeamName": "BOTAFOGO"
+                    },
+                    {
+                        "leftColumn": true,
+                        "middleColumn": false,
+                        "rightColumn": false,
+                        "weekday": "SÃ¡bado",
+                        "leftTeam": 4,
+                        "rightTeam": 2,
+                        "game": 5,
+                        "leftTeamName": "BAHIA",
+                        "rightTeamName": "FORTALEZA"
+                    },
+                    {
+                        "leftColumn": true,
+                        "middleColumn": false,
+                        "rightColumn": false,
+                        "weekday": "SÃ¡bado",
+                        "leftTeam": 2,
+                        "rightTeam": 1,
+                        "game": 6,
+                        "leftTeamName": "CUIABA",
+                        "rightTeamName": "SANTOS"
+                    },
+                    {
+                        "leftColumn": true,
+                        "middleColumn": false,
+                        "rightColumn": false,
+                        "weekday": "SÃ¡bado",
+                        "leftTeam": 2,
+                        "rightTeam": 0,
+                        "game": 7,
+                        "leftTeamName": "VOLTA REDONDA",
+                        "rightTeamName": "FERROVIARIO"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": true,
+                        "rightColumn": false,
+                        "weekday": "Domingo",
+                        "leftTeam": 0,
+                        "rightTeam": 0,
+                        "game": 8,
+                        "leftTeamName": "SUICA",
+                        "rightTeamName": "ITALIA"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": true,
+                        "rightColumn": false,
+                        "weekday": "Domingo",
+                        "leftTeam": 0,
+                        "rightTeam": 0,
+                        "game": 9,
+                        "leftTeamName": "BRASIL",
+                        "rightTeamName": "ARGENTINA"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": true,
+                        "rightColumn": false,
+                        "weekday": "Domingo",
+                        "leftTeam": 0,
+                        "rightTeam": 0,
+                        "game": 10,
+                        "leftTeamName": "EQUADOR",
+                        "rightTeamName": "CHILE"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": true,
+                        "rightColumn": false,
+                        "weekday": "Domingo",
+                        "leftTeam": 0,
+                        "rightTeam": 0,
+                        "game": 11,
+                        "leftTeamName": "ATHLETICO",
+                        "rightTeamName": "SPORT"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": true,
+                        "rightColumn": false,
+                        "weekday": "Domingo",
+                        "leftTeam": 1,
+                        "rightTeam": 1,
+                        "game": 12,
+                        "leftTeamName": "PARAGUAI",
+                        "rightTeamName": "COLOMBIA"
+                    },
+                    {
+                        "leftColumn": false,
+                        "middleColumn": true,
+                        "rightColumn": false,
+                        "weekday": "Domingo",
+                        "leftTeam": 1,
+                        "rightTeam": 1,
+                        "game": 13,
+                        "leftTeamName": "BOTAFOGO",
+                        "rightTeamName": "TOMBENSE"
+                    },
+                    {
+                        "leftColumn": true,
+                        "middleColumn": false,
+                        "rightColumn": false,
+                        "weekday": "Domingo",
+                        "leftTeam": 1,
+                        "rightTeam": 0,
+                        "game": 14,
+                        "leftTeamName": "PERU",
+                        "rightTeamName": "VENEZUELA"
+                    }
+                ],
+                "prizes": {
+                    "hits_14": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_14"
+                    },
+                    "hits_13": {
+                        "winners": 1,
+                        "amount": 46974.48,
+                        "range": "hits_13"
+                    }
+                }
+            },
+            "next": {
+                "date": "2021-09-11T03:00:00.000Z",
+                "estimatedPrize": 500000
+            },
+            "accumulatedEndingXContestValue": 219214.25,
+            "accumulatedEndingXContestNumber": 5,
+            "name": "loteca"
+        },
+        "timemania": {
+            "round": {
+                "date": "2021-09-11T03:00:00.000Z",
+                "number": 1687,
+                "city": "SÃO PAULO, SP",
+                "prizes": {
+                    "hits_5": {
+                        "winners": 66,
+                        "amount": 1187.2,
+                        "range": "hits_5"
+                    },
+                    "hits_6": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_6"
+                    },
+                    "hits_3": {
+                        "winners": 11141,
+                        "amount": 3,
+                        "range": "hits_3"
+                    },
+                    "hits_4": {
+                        "winners": 1116,
+                        "amount": 9,
+                        "range": "hits_4"
+                    },
+                    "hits_7": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_7"
+                    },
+                    "heart_club": {
+                        "club": "ABC/RN",
+                        "winners": 5238,
+                        "amount": 7.5,
+                        "ten": "1",
+                        "range": "heart_club"
+                    }
+                },
+                "numbers": [
+                    "33",
+                    "42",
+                    "62",
+                    "65",
+                    "71",
+                    "73",
+                    "75"
+                ],
+                "isAccumulated": true,
+                "totalCollection": 1031586,
+                "accumulated": 1246307.54
+            },
+            "next": {
+                "date": "2021-09-14T03:00:00.000Z",
+                "estimatedPrize": 1400000
+            },
+            "validity": "2021-09-14T03:00:00.000Z",
+            "name": "timemania"
+        },
+        "diadesorte": {
+            "round": {
+                "date": "2021-09-11T03:00:00.000Z",
+                "number": 505,
+                "city": "SÃO PAULO, SP",
+                "prizes": {
+                    "hits_5": {
+                        "winners": 2002,
+                        "amount": 20,
+                        "range": "hits_5"
+                    },
+                    "luck_month": {
+                        "winners": 69970,
+                        "amount": 2,
+                        "range": "luck_month"
+                    },
+                    "hits_6": {
+                        "winners": 49,
+                        "amount": 2056.67,
+                        "range": "hits_6"
+                    },
+                    "hits_4": {
+                        "winners": 26222,
+                        "amount": 4,
+                        "range": "hits_4"
+                    },
+                    "hits_7": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_7"
+                    }
+                },
+                "numbers": [
+                    "02",
+                    "03",
+                    "07",
+                    "08",
+                    "12",
+                    "14",
+                    "29"
+                ],
+                "isAccumulated": true,
+                "totalCollection": 1764146,
+                "accumulated": 1188298.89
+            },
+            "next": {
+                "date": "2021-09-14T03:00:00.000Z",
+                "estimatedPrize": 1400000
+            },
+            "validity": "2021-09-14T03:00:00.000Z",
+            "name": "diadesorte"
+        },
+        "supersete": {
+            "validity": "2021-09-13T03:00:00.000Z",
+            "valid": true,
+            "round": {
+                "number": 142,
+                "date": "2021-09-10T03:00:00.000Z",
+                "city": "SAO PAULO, SP",
+                "totalCollection": 781542.5,
+                "isAccumulated": true,
+                "accumulated": 1150314.04,
+                "numbers": [
+                    "3",
+                    "1",
+                    "9",
+                    "9",
+                    "8",
+                    "8",
+                    "3"
+                ],
+                "prizes": {
+                    "hits_7": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_7"
+                    },
+                    "hits_6": {
+                        "winners": 0,
+                        "amount": 0,
+                        "range": "hits_6"
+                    },
+                    "hits_5": {
+                        "winners": 43,
+                        "amount": 1065.23,
+                        "range": "hits_5"
+                    },
+                    "hits_4": {
+                        "winners": 771,
+                        "amount": 59.41,
+                        "range": "hits_4"
+                    },
+                    "hits_3": {
+                        "winners": 6686,
+                        "amount": 5,
+                        "range": "hits_3"
+                    }
+                }
+            },
+            "next": {
+                "date": "2021-09-13T03:00:00.000Z",
+                "estimatedPrize": 1300000
+            },
+            "specialGame": false,
+            "name": "supersete"
+        }
+    }
+  },
 
   // custom media parameters
   customMediaParam: "value",
