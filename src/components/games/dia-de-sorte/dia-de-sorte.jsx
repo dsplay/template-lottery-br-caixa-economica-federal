@@ -135,8 +135,7 @@ function DiaDeSorte() {
           </div>
           <div>
             <div className="extra-result">
-              <span className="label">Mês da Sorte:</span>
-              <span className="value">{months[month - 1]}</span>
+              <span className="label">Mês da Sorte</span>
             </div>
             <div className="result">
               <span className="winner">{winnersText}</span>
