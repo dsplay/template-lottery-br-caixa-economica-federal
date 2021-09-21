@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
 import Ball from '../../ball';
+import Logo from '../../logo';
+
 import './time-mania.sass';
 import './time-mania-h.sass';
 import './time-mania-v.sass';
 import './time-mania-banner-h.sass';
 import './time-mania-banner-v.sass';
 import './time-mania-squared.sass';
-import logo from '../../../images/time-mania-branco.png';
 import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 
@@ -77,7 +79,7 @@ function TimeMania() {
     <div className={`${screenFormat} time-mania`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#8fcbb3" secondColor="#269869"/>
           <span>{title}</span>
         </div>
       </div>

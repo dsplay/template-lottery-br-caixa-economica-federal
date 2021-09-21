@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
 import Ball from '../../ball';
+import Logo from '../../logo';
+
 import './dupla-sena.sass';
 import './dupla-sena-h.sass';
 import './dupla-sena-v.sass';
 import './dupla-sena-banner-h.sass';
 import './dupla-sena-banner-v.sass';
 import './dupla-sena-squared.sass';
-import logo from '../../../images/dupla-sena-branco.png';
 import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 moment.locale('pt-BR');
@@ -89,7 +91,7 @@ function DuplaSena() {
     <div className={`${screenFormat} dupla-sena`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#FFF" secondColor="#D28891"/>
           <span>{title}</span>
         </div>
       </div>

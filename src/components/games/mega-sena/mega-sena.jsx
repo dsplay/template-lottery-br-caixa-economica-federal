@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
+import Logo from "../../logo";
 import Ball from '../../ball';
+
 import './mega-sena.sass';
 import './mega-sena-h.sass';
 import './mega-sena-v.sass';
 import './mega-sena-banner-h.sass';
 import './mega-sena-banner-v.sass';
 import './mega-sena-squared.sass';
-import logo from '../../../images/mega-sena-branco.png';
 import { screenFormat, BANNER_V } from '../../../util.js/screen';
 
 
@@ -83,7 +85,7 @@ function MegaSena() {
     <div className={`${screenFormat} mega-sena`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#FFF" secondColor="#8FCBB3"/>
           <span>{title}</span>
         </div>
       </div>

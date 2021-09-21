@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
 import Ball from '../../ball';
+import Logo from "../../logo";
+
 import './super-sete.sass';
 import './super-sete-h.sass';
 import './super-sete-v.sass';
 import './super-sete-banner-h.sass';
 import './super-sete-banner-v.sass';
 import './super-sete-squared.sass';
-import logo from '../../../images/mega-sena-branco.png';
 import { screenFormat, BANNER_V } from '../../../util.js/screen';
 
 
@@ -82,7 +84,7 @@ function SuperSete() {
     <div className={`${screenFormat} super-sete`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#D8EBA9" secondColor="#EFFFE1"/>
           <span>{title}</span>
         </div>
       </div>

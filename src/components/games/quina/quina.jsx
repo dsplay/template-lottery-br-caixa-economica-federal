@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
 import Ball from '../../ball';
+import Logo from '../../logo';
+
 import './quina.sass';
 import './quina-h.sass';
 import './quina-v.sass';
 import './quina-banner-h.sass';
 import './quina-banner-v.sass';
 import './quina-squared.sass';
-import logo from '../../../images/quina-branco.png';
 import { screenFormat, BANNER_V } from '../../../util.js/screen';
 
 
@@ -74,7 +76,7 @@ function Quina() {
     <div className={`${screenFormat} quina`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#FFF" secondColor="#927FC1"/>
           <span>{title}</span>
         </div>
       </div>

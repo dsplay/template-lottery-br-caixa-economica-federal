@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
 import Ball from '../../ball';
+import Logo from '../../logo';
+
 import './loto-mania.sass';
 import './loto-mania-h.sass';
 import './loto-mania-v.sass';
 import './loto-mania-banner-h.sass';
 import './loto-mania-banner-v.sass';
 import './loto-mania-squared.sass';
-import logo from '../../../images/loto-mania-branco.png';
 import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 
@@ -75,7 +77,7 @@ function LotoMania() {
     <div className={`${screenFormat} loto-mania`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#FFF" secondColor="#FABF7F"/>
           <span>{title}</span>
         </div>
       </div>

@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
 import Ball from '../../ball';
+import Logo from '../../logo';
+
 import './loto-facil.sass';
 import './loto-facil-h.sass';
 import './loto-facil-v.sass';
 import './loto-facil-banner-h.sass';
 import './loto-facil-banner-v.sass';
 import './loto-facil-squared.sass';
-import logo from '../../../images/loto-facil-branco.png';
 import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 
@@ -75,7 +77,7 @@ function LotoFacil() {
     <div className={`${screenFormat} loto-facil`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#FFF" secondColor="#C87FC3"/>
           <span>{title}</span>
         </div>
       </div>
