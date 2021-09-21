@@ -1,6 +1,6 @@
 var media = {
   duration: 5000,
-  iteration: 8, // testando 8 e 9
+  iteration: 9, // testando 8 e 9
 
   // for json service based media
   result: {

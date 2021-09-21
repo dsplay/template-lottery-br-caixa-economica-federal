@@ -38,7 +38,7 @@ const gameMap = {
   timemania: TimeMania,
   diadesorte: DiaDeSorte,
   supersete: SuperSete,
-  // loteca: Loteca,
+  loteca: Loteca,
 };
 
 const {
