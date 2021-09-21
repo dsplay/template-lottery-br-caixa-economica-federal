@@ -20,6 +20,8 @@ import LotoMania from './components/games/loto-mania/loto-mania';
 import DiaDeSorte from './components/games/dia-de-sorte/dia-de-sorte';
 import TimeMania from './components/games/time-mania/time-mania';
 import Federal from './components/games/federal/federal';
+import SuperSete from './components/games/super-sete/super-sete';
+import Loteca from './components/games/loteca/loteca';
 import './App.sass';
 
 const {
@@ -35,6 +37,8 @@ const gameMap = {
   lotomania: LotoMania,
   timemania: TimeMania,
   diadesorte: DiaDeSorte,
+  supersete: SuperSete,
+  loteca: Loteca,
 };
 
 const {

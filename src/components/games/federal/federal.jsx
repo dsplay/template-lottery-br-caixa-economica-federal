@@ -7,14 +7,15 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
-import Ball from '../../ball';
+
+import Logo from '../../logo';
+
 import './federal.sass';
 import './federal-h.sass';
 import './federal-v.sass';
 import './federal-banner-h.sass';
 import './federal-banner-v.sass';
 import './federal-squared.sass';
-import logo from '../../../images/federal-branco.png';
 import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 
@@ -80,7 +81,7 @@ function Federal() {
     <div className={`${screenFormat} federal`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#FFF" secondColor="#8797CB"/>
           <span>{title}</span>
         </div>
       </div>

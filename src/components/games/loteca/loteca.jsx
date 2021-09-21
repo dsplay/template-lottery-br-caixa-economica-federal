@@ -8,15 +8,15 @@ import {
   template, // custom template values
 } from '@dsplay/template-utils';
 
-import Ball from '../../ball';
 import Logo from '../../logo';
+import Match from '../../match';
 
-import './time-mania.sass';
-import './time-mania-h.sass';
-import './time-mania-v.sass';
-import './time-mania-banner-h.sass';
-import './time-mania-banner-v.sass';
-import './time-mania-squared.sass';
+import './loteca.sass';
+import './loteca-h.sass';
+import './loteca-v.sass';
+import './loteca-banner-h.sass';
+import './loteca-banner-v.sass';
+import './loteca-squared.sass';
 import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 
@@ -29,24 +29,21 @@ var fmt = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 2,
 });
 
-function TimeMania() {
+function Loteca() {
 
-  const title = 'TIME MANIA';
+  const title = 'LOTECA';
 
   const {
     result: {
       data: {
-        timemania: {
+        loteca: {
           round: {
             number,
-            numbers = [],
+            matches,
             prizes: {
-              hits_7: {
+              hits_14: {
                 winners,
                 amount,
-              },
-              heart_club: {
-                club,
               },
             },
             accumulated,
@@ -57,10 +54,13 @@ function TimeMania() {
             date: nextDate,
             estimatedPrize,
           },
+          accumulatedIndependenceDaySpecialPrize: nextSpecialPrizeAccumulated,
         },
       },
     },
   } = media;
+
+  console.log(media);
 
   let lastPrize;
   let winnersText;
@@ -69,17 +69,17 @@ function TimeMania() {
     winnersText = `${winners} ganhador${winners === 1 ? '' : 'es'}`;
     lastPrize = amount;
   } else {
-    winnersText = `ACUMULOU`;
+    winnersText = `Não houve ganhadores`;
     lastPrize = accumulated;
   }
 
   const nextDateUTC = moment.utc(nextDate);
 
   return (
-    <div className={`${screenFormat} time-mania`}>
+    <div className={`${screenFormat} loteca`}>
       <div className="header">
         <div className="logo">
-          <Logo primaryColor="#8fcbb3" secondColor="#269869"/>
+          <Logo primaryColor="#FFF" secondColor="#fc8e7f"/>
           <span>{title}</span>
         </div>
       </div>
@@ -111,44 +111,38 @@ function TimeMania() {
 
       <div className="last-round flex v">
         <div className="title">Último Resultado</div>
-        <div className="results">
-          <div className="numbers">
-            <span>
-              {numbers.slice(0, 4).map(number => <Ball key={number} value={number} />)}
-            </span>
-            <span>
-              {numbers.slice(4).map(number => <Ball key={number} value={number} />)}
-            </span>
+        <div style={{ display: 'flex' }}>
+          <div>
+            {matches.slice(0, 4).map(match => <Match match={match} /> )}
           </div>
           <div>
-            <div className="extra-result">
-              <span className="label">Time do Coração: ♥</span>
-              <span className="value">{club}</span>
-            </div>
-            <div className="result">
-              <span className="winner">{winnersText}</span>
-                            &nbsp;(R$&nbsp;
-                            <CountUp
-                duration={3}
-                start={0}
-                end={lastPrize}
-                decimals={2}
-                separator="."
-                decimal=","
-              />
-                            )
-                        </div>
+            {matches.slice(4, 8).map(match => <Match match={match} /> )}
+          </div>
+          <div>
+            {matches.slice(8, 12).map(match => <Match match={match} /> )}
+          </div>
+          <div>
+            {matches.slice(12, 14).map(match => <Match match={match} /> )}
           </div>
         </div>
+        <div className="result">
+          <span className="winner">{winnersText}</span> (R$
+                        <CountUp
+            duration={3}
+            start={0}
+            end={lastPrize}
+            decimals={2}
+            separator="."
+            decimal=","
+          />
+                    )
+                </div>
         <div className="info">
           Concurso nº <strong>{number}</strong>, realizado em {moment(date).format('L')}. Local: {city}
         </div>
-      </div>
-      <div className="spacer3" />
-      <div className="special-prizes">
       </div>
     </div>
   );
 }
 
-export default TimeMania;
+export default Loteca;

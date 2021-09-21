@@ -9,17 +9,26 @@ import {
 } from '@dsplay/template-utils';
 
 import Ball from '../../ball';
-import Logo from '../../logo';
+import Logo from "../../logo";
 
-import './time-mania.sass';
-import './time-mania-h.sass';
-import './time-mania-v.sass';
-import './time-mania-banner-h.sass';
-import './time-mania-banner-v.sass';
-import './time-mania-squared.sass';
-import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
+import './super-sete.sass';
+import './super-sete-h.sass';
+import './super-sete-v.sass';
+import './super-sete-banner-h.sass';
+import './super-sete-banner-v.sass';
+import './super-sete-squared.sass';
+import { screenFormat, BANNER_V } from '../../../util.js/screen';
 
 
+
+const {
+  fontRatio,
+  scaledDensity,
+  xdpi,
+  ydpi,
+  width,
+  height,
+} = config;
 
 moment.locale('pt-BR');
 
@@ -29,14 +38,14 @@ var fmt = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 2,
 });
 
-function TimeMania() {
+function SuperSete() {
 
-  const title = 'TIME MANIA';
+  const title = screenFormat === BANNER_V ? 'SUPER SETE' : 'SUPER-SETE';
 
   const {
     result: {
       data: {
-        timemania: {
+        supersete: {
           round: {
             number,
             numbers = [],
@@ -44,9 +53,6 @@ function TimeMania() {
               hits_7: {
                 winners,
                 amount,
-              },
-              heart_club: {
-                club,
               },
             },
             accumulated,
@@ -64,22 +70,21 @@ function TimeMania() {
 
   let lastPrize;
   let winnersText;
-
   if (winners > 0) {
     winnersText = `${winners} ganhador${winners === 1 ? '' : 'es'}`;
     lastPrize = amount;
   } else {
-    winnersText = `ACUMULOU`;
+    winnersText = `Acumulou`;
     lastPrize = accumulated;
   }
 
   const nextDateUTC = moment.utc(nextDate);
 
   return (
-    <div className={`${screenFormat} time-mania`}>
+    <div className={`${screenFormat} super-sete`}>
       <div className="header">
         <div className="logo">
-          <Logo primaryColor="#8fcbb3" secondColor="#269869"/>
+          <Logo primaryColor="#D8EBA9" secondColor="#EFFFE1"/>
           <span>{title}</span>
         </div>
       </div>
@@ -111,44 +116,49 @@ function TimeMania() {
 
       <div className="last-round flex v">
         <div className="title">Último Resultado</div>
-        <div className="results">
-          <div className="numbers">
-            <span>
-              {numbers.slice(0, 4).map(number => <Ball key={number} value={number} />)}
-            </span>
-            <span>
-              {numbers.slice(4).map(number => <Ball key={number} value={number} />)}
-            </span>
-          </div>
-          <div>
-            <div className="extra-result">
-              <span className="label">Time do Coração: ♥</span>
-              <span className="value">{club}</span>
-            </div>
-            <div className="result">
-              <span className="winner">{winnersText}</span>
-                            &nbsp;(R$&nbsp;
-                            <CountUp
-                duration={3}
-                start={0}
-                end={lastPrize}
-                decimals={2}
-                separator="."
-                decimal=","
-              />
-                            )
-                        </div>
-          </div>
+        <div className="numbers">
+          <span>
+            {numbers.slice(0, 3).map(number => <Ball key={number} value={number} />)}
+          </span>
+          <span>
+            {numbers.slice(3).map(number => <Ball key={number} value={number} />)}
+          </span>
         </div>
+        <div className="result">
+          <span className="winner">{winnersText}</span> (R$
+                        <CountUp
+            duration={3}
+            start={0}
+            end={lastPrize}
+            decimals={2}
+            separator="."
+            decimal=","
+          />
+                    )
+                </div>
         <div className="info">
           Concurso nº <strong>{number}</strong>, realizado em {moment(date).format('L')}. Local: {city}
         </div>
       </div>
-      <div className="spacer3" />
+      {/* <div className="spacer3" />
       <div className="special-prizes">
-      </div>
+        Acumulado para Mega da Virada:
+                <strong>
+          &nbsp;
+          R$
+          &nbsp;
+          <CountUp
+            duration={5}
+            start={0}
+            end={accumulatedMegaVirada}
+            decimals={2}
+            separator="."
+            decimal=","
+          />
+        </strong>
+      </div> */}
     </div>
   );
 }
 
-export default TimeMania;
+export default SuperSete;

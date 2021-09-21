@@ -7,14 +7,16 @@ import {
   config, // player configuration
   template, // custom template values
 } from '@dsplay/template-utils';
+
 import Ball from '../../ball';
+import Logo from '../../logo';
+
 import './dia-de-sorte.sass';
 import './dia-de-sorte-h.sass';
 import './dia-de-sorte-v.sass';
 import './dia-de-sorte-banner-h.sass';
 import './dia-de-sorte-banner-v.sass';
 import './dia-de-sorte-squared.sass';
-import logo from '../../../images/dia-de-sorte-branco.png';
 import { screenFormat, BANNER_H, BANNER_V } from '../../../util.js/screen';
 
 moment.locale('pt-BR');
@@ -90,7 +92,7 @@ function DiaDeSorte() {
     <div className={`${screenFormat} dia-de-sorte`}>
       <div className="header">
         <div className="logo">
-          <img src={logo} />
+          <Logo primaryColor="#FFF" secondColor="#EDC48B"/>
           <span>{title}</span>
         </div>
       </div>
@@ -133,8 +135,7 @@ function DiaDeSorte() {
           </div>
           <div>
             <div className="extra-result">
-              <span className="label">Mês da Sorte:</span>
-              <span className="value">{months[month - 1]}</span>
+              <span className="label">Mês da Sorte</span>
             </div>
             <div className="result">
               <span className="winner">{winnersText}</span>
